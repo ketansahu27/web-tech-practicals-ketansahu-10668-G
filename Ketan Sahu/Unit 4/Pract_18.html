@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Manipulation Example</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            padding: 6px;
+            margin: 5px 0;
+            background: #e3f2fd;
+            border-radius: 4px;
+        }
+
+        button {
+            margin: 5px 3px;
+            padding: 8px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .add { background: #4caf50; color: white; }
+        .remove { background: #f44336; color: white; }
+        .modify { background: #2196f3; color: white; }
+    </style>
+</head>
+<body>
+
+    <h2>DOM Create / Append / Remove / Modify</h2>
+
+    <div class="container">
+        <ul id="itemList">
+            <li>Item 1</li>
+            <li>Item 2</li>
+        </ul>
+
+        <button class="add" onclick="addItem()">Add Item</button>
+        <button class="remove" onclick="removeItem()">Remove Last Item</button>
+        <button class="modify" onclick="modifyItem()">Modify First Item</button>
+    </div>
+
+    <script>
+        let count = 3;
+
+        // CREATE + APPEND
+        function addItem() {
+            const li = document.createElement("li"); // create element
+            li.textContent = "Item " + count;        // add text
+            document.getElementById("itemList").appendChild(li); // append
+            count++;
+        }
+
+        // REMOVE
+        function removeItem() {
+            const list = document.getElementById("itemList");
+            if (list.lastElementChild) {
+                list.removeChild(list.lastElementChild);
+                count--;
+            }
+        }
+
+        // MODIFY
+        function modifyItem() {
+            const firstItem = document.querySelector("#itemList li");
+            if (firstItem) {
+                firstItem.textContent = "Modified Item";
+                firstItem.style.background = "#ffeb3b";
+                firstItem.style.fontWeight = "bold";
+            }
+        }
+    </script>
+
+</body>
+</html>

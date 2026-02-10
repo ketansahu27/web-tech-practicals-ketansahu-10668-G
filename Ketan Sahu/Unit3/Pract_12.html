@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical Demonstrations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .header-section {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .info-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .info-box p {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .hint {
+            background: #f0f4ff;
+            padding: 12px 15px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+            margin-bottom: 25px !important;
+            color: #333;
+            font-size: 14px;
+        }
+
+        kbd {
+            background: #333;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 12px;
+            margin: 0 3px;
+        }
+
+        .input-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 12px;
+            color: #333;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 12px rgba(102, 126, 234, 0.3);
+            transform: scale(1.02);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(-1px);
+        }
+
+        .result-box {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+            animation: fadeIn 0.4s ease-in;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .result-box.show {
+            display: block;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-left: 5px solid #667eea;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .result-box.success {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border-left-color: #27ae60;
+        }
+
+        .result-box.warning {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            border-left-color: #e67e22;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-section">
+            <h1>Practical Demonstrations</h1>
+            <p class="subtitle">Explore conditional statements and more</p>
+        </div>
+        
+        <div class="info-box">
+            <p>🖥️ Open the Developer Console to see output of conditional statements and other demonstrations.</p>
+            <p class="hint">Press <kbd>F12</kbd> or <kbd>Ctrl+Shift+J</kbd> to open the console</p>
+            
+            <div class="input-section">
+                <label for="ageInput">Enter Your Age:</label>
+                <input type="number" id="ageInput" placeholder="Enter age between 0-120" min="0" max="120">
+                <button onclick="checkAge()">Check Age Category</button>
+            </div>
+            
+            <div id="result" class="result-box"></div>
+        </div>
+    </div>
+    
+    <script>
+        function checkAge() {
+            const ageInput = document.getElementById("ageInput");
+            const resultBox = document.getElementById("result");
+            const age = parseInt(ageInput.value);
+
+            // Console output for demonstration
+            console.log("Age Check - Input: " + age);
+
+            // Validation
+            if (isNaN(age) || age < 0 || age > 120) {
+                resultBox.textContent = "⚠️ Please enter a valid age between 0 and 120!";
+                resultBox.className = "result-box show warning";
+                console.warn("Invalid age input:", age);
+                return;
+            }
+
+            // Conditional statements
+            let category = "";
+            let emoji = "";
+
+            if (age < 5) {
+                category = "Toddler";
+                emoji = "👶";
+            } else if (age < 13) {
+                category = "Child";
+                emoji = "👧";
+            } else if (age < 18) {
+                category = "Teenager";
+                emoji = "👦";
+            } else if (age < 60) {
+                category = "Adult";
+                emoji = "👨";
+            } else {
+                category = "Senior";
+                emoji = "👴";
+            }
+
+            // Display result
+            const message = `${emoji} You are ${age} years old and belong to the <strong>${category}</strong> category.`;
+            resultBox.innerHTML = message;
+            resultBox.className = "result-box show success";
+
+            // Console output
+            console.log(`Age Category: ${category}`);
+            console.log(`Full result: You are ${age} years old and belong to the ${category} category.`);
+        }
+
+        // Allow Enter key to submit
+        document.getElementById("ageInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                checkAge();
+            }
+        });
+    </script>
+</body>
+</html>
