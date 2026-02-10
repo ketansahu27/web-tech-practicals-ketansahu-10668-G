@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Example</title>
+
+    <!-- CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef4ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box {
+            background: white;
+            padding: 25px;
+            width: 450px;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.25);
+        }
+        h2 {
+            color: #005ad0;
+            text-align: center;
+        }
+        button {
+            background: #005ad0;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+            width: 100%;
+        }
+        button:hover {
+            background: #003e93;
+        }
+        p {
+            background: #f0f7ff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>DOM Manipulation Demo</h2>
+
+        <p id="message">Original message here...</p>
+        <p class="colorText">This text color will change</p>
+
+        <button onclick="changeText()">Change Text (getElementById)</button>
+        <button onclick="changeColor()">Change Color (querySelector)</button>
+        <button onclick="addContent()">Add New Content (innerHTML)</button>
+
+        <div id="contentBox"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // 1️⃣ getElementById() — update text
+        function changeText() {
+            let msg = document.getElementById("message");
+            msg.innerHTML = "✔ Text changed using getElementById()";
+        }
+
+        // 2️⃣ querySelector() — change style
+        function changeColor() {
+            let text = document.querySelector(".colorText");
+            text.style.color = "red";
+            text.innerHTML = "✔ Color changed using querySelector()";
+        }
+
+        // 3️⃣ innerHTML — add new content
+        function addContent() {
+            let box = document.getElementById("contentBox");
+            box.innerHTML = "<b>✔ New content added using innerHTML</b>";
+        }
+    </script>
+
+</body>
+</html>

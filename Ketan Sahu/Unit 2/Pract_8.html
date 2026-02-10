@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+    <style>
+        /* Class Selector */
+        .highlight {
+            background-color: yellow;
+}
+        /* ID Selector */
+        #unique {
+            color: red;
+        }
+        /* Descendant Selector */
+        div p {
+            font-size: 18px;
+        }
+        /* Universal Selector */
+        * {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+ </head>
+ <body>
+    <div>
+        <p class="highlight">This is a highlighted paragraph inside a div.</p>
+        <p id="unique">This paragraph has a unique ID style.</p>
+    </div>
+    <p>This is outside div.</p>
+ </body>
+ </html>
