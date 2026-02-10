@@ -1,0 +1,48 @@
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Page</title>
+    <style>
+        header{
+            background-color: rgb(46, 84, 124);
+            padding: 10px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 50px;
+            box-shadow: 8px 4px 8px rgba(148, 82, 35, 0.95);
+            border-radius: 10 px;   
+        }
+        .box {
+            background: lightblue;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            flex: 1 1 calc(33% - 20px);
+            box-sizing: border-box;
+        }
+        @media (max-width: 768px) {
+            .box {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
+        @media (max-width: 480px) {
+            .box {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+ </head>
+ <body><header>
+    <h1 style="text-align: center; color: #df8831";>Responsive Flexbox Layout</h1></header>
+    <div class="container">
+        <div class="box">Build </div>
+        <div class="box">Don't</div>
+        <div class="box">Talk</div>
+    </div>
+ </body>
+ </html>
